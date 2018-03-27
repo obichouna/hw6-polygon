@@ -3,8 +3,10 @@ from matrix import *
 from math import *
 
 def add_polygon( points, x0, y0, z0, x1, y1, z1, x2, y2, z2 ):
-    pass
-
+    add_edge(points, x0, y0, z0, x1, y1, z1)
+    add_edge(points, x0, y0, z0, x2, y2, z2)
+    add_edge(points, x1, y1, z1, x2, y2, z2)
+    
 def draw_polygons( points, screen, color ):
     pass
 
