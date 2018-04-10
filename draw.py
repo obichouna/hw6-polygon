@@ -3,12 +3,18 @@ from matrix import *
 from math import *
 
 def add_polygon( points, x0, y0, z0, x1, y1, z1, x2, y2, z2 ):
-    add_edge(points, x0, y0, z0, x1, y1, z1)
-    add_edge(points, x0, y0, z0, x2, y2, z2)
-    add_edge(points, x1, y1, z1, x2, y2, z2)
+    #add_edge(points, x0, y0, z0, x1, y1, z1)
+    #add_edge(points, x0, y0, z0, x2, y2, z2)
+    #add_edge(points, x1, y1, z1, x2, y2, z2)
+    points += [[x0, y0, z0, 1], [x1, y1, z1, 1], [x2, y2, z2, 1]]
     
 def draw_polygons( points, screen, color ):
-    pass
+    i = 0
+    while i < len(points):
+        draw_line(points[i][0], points[i][1], points[i + 1][0], points[i + 1], points[1], screen, color)
+        draw_line(points[i][0], points[i][1], points[i + 2][0], points[i + 1], points[1], screen, color)
+        draw_line(points[i + 1][0], points[i + 1][1], points[i + 2][0], points[i + 2], points[1], screen, color)
+        i + 3
 
 def add_box( points, x, y, z, width, height, depth ):
     x1 = x + width
